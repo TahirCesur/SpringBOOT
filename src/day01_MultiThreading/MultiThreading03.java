@@ -1,9 +1,12 @@
 package day01_MultiThreading;
 
 public class MultiThreading03 {
+
     public static void main(String[] args){
+
         Brackets obj1 = new Brackets();
         Brackets obj2 = new Brackets();
+
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -13,11 +16,19 @@ public class MultiThreading03 {
             }
         });
         thread1.start();
+
+        //------------------------------------
+        // Duzgun olarak istedigimiz sekilde olsun istiyorsak try catch ile jin kullaniyoruz
+
         try {
             thread1.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        //------------------------------------
+
+        System.out.println("***************");
 
         Thread thread2 = new Thread(new Runnable() {
             @Override

@@ -1,8 +1,11 @@
 package day01_MultiThreading;
 
 public class MultiThreading02 {
+
     public static int counter = 0;
+
     public static void main(String[] args){
+
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -22,7 +25,7 @@ public class MultiThreading02 {
         thread2.start();
     }
 }
-class Counter{ // Counter = Sayıcı
+class Counter { // Counter = Sayıcı
     synchronized public static void count() {
         for(int i=1; i<=1000; i++) {
             MultiThreading02.counter++;

@@ -1,7 +1,9 @@
 package day01_MultiThreading;
 
 public class MultiThreading01 {
+
     public static void main(String[] args) throws InterruptedException {
+
         // MultiThreading Olmadan
         long StartingTime00 = System.currentTimeMillis();
         CounterWithoutMultiThread obj1 = new CounterWithoutMultiThread(1);
@@ -23,8 +25,6 @@ public class MultiThreading01 {
         obj4.join();
         long EndingTime01 = System.currentTimeMillis();
         System.out.println("MultiThreading ile zaman farkı: " +(EndingTime01 - StartingTime01));
-
-
 
     }
 }
