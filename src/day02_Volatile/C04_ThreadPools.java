@@ -3,8 +3,25 @@ package day02_Volatile;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ThreadPools {
+public class C04_ThreadPools {
+
+    /* =============================================== THREAD POOL ====================================================
+     Thread Pool, ExecutorService interface'i yardımıyla oluşturulan bir Thread havuzudur.
+     Hizmet görecek olan thread'ler baştan bir kere oluşturulur sonrasında ise kuyrukta (TaskQueue)
+     sıranın ona gelmesine bekler.
+     Havuzun kapasitesi ölçüsünde thread'ler eş zamanlı hizmet görürler.
+
+     Bu yöntem baştan thread'lerin oluşturulmasını, belirli sayıda thread'in eş-zamanlı
+     çalıştırılmasını ve gerektiğinde tekrar kullanılmasını sağlamaktadir.
+     Böylece, sürekli Thread oluşturmak ve kaldırmak gibi ciddi
+     iş yükü getiren işlemlerin runtime sırasında yapılmasına gerek kalmaz.
+     Bu da önemli ölçüde performans artışına yol açar.
+
+     Özelikle web-sunucu ortamlari için elverişli bir metot sunar.
+     */
+
     public static void main(String[] args) {
+
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         ThreadCreater thread1 = new ThreadCreater("Thread-1");
@@ -40,27 +57,25 @@ public class ThreadPools {
         executorService.execute(thread9);
         executorService.execute(thread10);
 
-
     }
 }
-class ThreadCreater extends Thread{
+    class ThreadCreater extends Thread {
     private String threadName;
 
-    // Constructor
+    // Parametreli Constructor
     public ThreadCreater(String threadName) {
         this.threadName = threadName;
     }
 
     // Override Run()
-
     @Override
     public void run() {
-        System.out.println(threadName + " thread started to run...");
+        System.out.println(threadName + " Thread calisti...");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(threadName + " thread stopped to run...");
+        System.out.println(threadName + " Thread durduruldu...");
     }
 }
