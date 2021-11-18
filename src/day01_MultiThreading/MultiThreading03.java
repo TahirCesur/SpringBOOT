@@ -19,8 +19,11 @@ public class MultiThreading03 {
         thread1.start();
 
         //=======================================================================================
+        // Threadleri farkli objelerle kullandigimiz zaman syncronized kullanirsak
+        // senkronizasyon problemi yasariz. Bu gibi durumlarda, join kullanmaliyiz.
+
         // Duzgun olarak istedigimiz sekilde olsun istiyorsak try catch ile join kullaniyoruz...
-        // Not : 46. satırda synchronized keywordu istedigimizi vermedi...
+        // Not : 49. satırda synchronized keywordu istedigimizi vermedi...
 
         try {
             thread1.join();

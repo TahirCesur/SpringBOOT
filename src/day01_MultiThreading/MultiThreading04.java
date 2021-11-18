@@ -8,7 +8,7 @@ public class MultiThreading04 {
         Brackets2 obj4 = new Brackets2();
 
         Thread thread1 = new Thread(new Runnable() {
-
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 for(int i=1; i<=7; i++) {

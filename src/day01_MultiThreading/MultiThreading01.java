@@ -2,6 +2,46 @@ package day01_MultiThreading;
 
 public class MultiThreading01 {
 
+    // DERS NOTLARİ
+
+    /*
+    ============================================ THREAD, PROCESS==========================================
+    Thread : Kelime manası iplik olmasına karsin IT alaninda is parcacigi olarak adlandirilir.
+
+    Thread, Process olarak adlandirilan ve her bir calısan programın alt is parcacigi olarak dusunulebilir.
+
+    Single-Thread: Tek is parcacigi vardır. Ve tüm işler sira ile yapilir.
+
+    Multi-Thread: Bir den fazla is parcacigi vardir ve bu isler ayni anda yapilabilir
+    (farklı işlemciler yardımıyla)
+
+    Javada 2 yöntem ile Thread olusturmak mumkundur.
+    ----------------------------------------------
+    1- Thread classından bir class extends (tureterek)
+    2- Runnable Interface'inden implements ederek.
+
+    Thread class'inin yaygin kullanilan metotlari:
+    -----------------------------------------------
+    public void run(): Bir threat'in calistiracagi islemleri tanimlamak amaciyla kullanilir.
+    public void start(): Bir thread'in baslatilmasini saglar.JVM, thread'in run() methodunu calistirir.
+    public void sleep(long miliseconds): Bir thread'in belirtilen sure (ms) boyunca bekletilmesini saglar.
+    public void join(): Bir thread olmesini (bitmesi) beklemek icin kullanilir.
+    public int getPriority(): Bir thread'in onceligini dondurur.
+    public int setPriority(int priority): Bir thread icin oncelik ayarlamaya yarar.
+    public String getName(): Bir thread'in adini dondurur.
+    public void setName(String name): Bir thread'e isim vermeye yarar.
+    public Thread currentThread(): Su an calisan thread'in referansini dondurur.
+    public int getId(): Bir thread'in id numarasini dondurur.
+    public Thread.State getState(): Bir thread'in state (durum)'ini dondurur.
+    public boolean isAlive(): Bir thread'in canlı (alive) olup olmadigini soyler.
+    public void yield(): Aktif olan bir thread'in gecici olarak durdurulmasini ve
+    baska thread'lerin calistirilmasini saglar.
+    public boolean isDaemon(): Bir thread'in Deamon threat lup olmadıgını test eder.
+    public void setDaemon(boolean b): Bir thread'i deoman thread olarak isaretler.
+    public void interrupt(): Thread kesintiye ugratır.
+    public boolean isInterrupted(): Bir thread'in kesilip kesilmedigini test eder.
+ */
+
     public static void main(String[] args) throws InterruptedException {
 
         // MultiThreading Olmadan
