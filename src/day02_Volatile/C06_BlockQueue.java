@@ -1,12 +1,23 @@
 package day02_Volatile;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Callable;
 
-public class BlockQueue {
-    static public int counter = 1;
+public class C06_BlockQueue {
+    /*
+    ============================================= ARRAYBLOCKINGQUEUE ============================================
+    ArrayBlockingQueue aslinda bir Collection'dır.
+    Queue'nun bir kapasitesi bulunmaktadir ve bu kapasite bir kere belirlendi mi runtime'da değiştirilemez.
+    Bu Queue'nun en büyük özelliği, queue doluyken yeni bir veri eklemeyi
+    ve queue bos iken veri cikarmayi engellemesidir.
+    Queue'nun calismasi LIFO mantığına goredir.
+    */
+
+    static public int counter =1;
+
     public static void main(String[] args) {
+
         ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue(10);
+
         Producer producer = new Producer(queue);
         Thread producerThread = new Thread(producer);
         producerThread.start();
@@ -16,22 +27,21 @@ public class BlockQueue {
         consumerThread.start();
     }
 }
-class Producer implements Runnable {
+class Producer implements Runnable{//Uretici
     private ArrayBlockingQueue<Integer> queue;
-    //Constructor
+    // Constructor
     public Producer(ArrayBlockingQueue<Integer> queue) {
         this.queue = queue;
     }
 
-    // Override Run()
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             try {
                 Thread.sleep(1000);
-                queue.put(BlockQueue.counter);
-                BlockQueue.counter++;
-                System.out.println("counter value is put to the queue array: " + BlockQueue.counter);
+                queue.put(C06_BlockQueue.counter);
+                System.out.println("counter degeri query array'ini: " + C06_BlockQueue.counter);
+                C06_BlockQueue.counter++;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -39,22 +49,22 @@ class Producer implements Runnable {
     }
 }
 
-class Consumer implements Runnable {
+
+class Consumer implements Runnable{
     private ArrayBlockingQueue<Integer> queue;
     // Constructor
     public Consumer(ArrayBlockingQueue<Integer> queue) {
         this.queue = queue;
     }
 
-    // Override Run()
     @Override
     public void run() {
         while (true) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 queue.take();
-                BlockQueue.counter--;
-                System.out.println("counter value is removed from the queue array: " + BlockQueue.counter);
+                C06_BlockQueue.counter--;
+                System.out.println("Counter degerimiz queue array'inden azaltildi: " + C06_BlockQueue.counter);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
