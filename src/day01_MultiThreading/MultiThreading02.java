@@ -7,6 +7,7 @@ public class MultiThreading02 {
     public static void main(String[] args){
 
         Thread thread1 = new Thread(new Runnable() {
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 Counter.count();

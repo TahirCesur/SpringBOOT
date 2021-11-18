@@ -8,6 +8,7 @@ public class MultiThreading03 {
         Brackets obj2 = new Brackets();
 
         Thread thread1 = new Thread(new Runnable() {
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 for(int i=1; i<=7; i++){
@@ -17,16 +18,16 @@ public class MultiThreading03 {
         });
         thread1.start();
 
-        //------------------------------------
-        // Duzgun olarak istedigimiz sekilde olsun istiyorsak try catch ile jin kullaniyoruz
+        //=======================================================================================
+        // Duzgun olarak istedigimiz sekilde olsun istiyorsak try catch ile join kullaniyoruz...
+        // Not : 46. satırda synchronized keywordu istedigimizi vermedi...
 
         try {
             thread1.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        //------------------------------------
+        //=======================================================================================
 
         System.out.println("***************");
 
