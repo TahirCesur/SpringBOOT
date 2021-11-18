@@ -2,14 +2,16 @@ package day02_Volatile;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class C06_BlockQueue {
+ public class C06_BlockQueue {
     /*
     ============================================= ARRAYBLOCKINGQUEUE ============================================
     ArrayBlockingQueue aslinda bir Collection'dır.
     Queue'nun bir kapasitesi bulunmaktadir ve bu kapasite bir kere belirlendi mi runtime'da değiştirilemez.
     Bu Queue'nun en büyük özelliği, queue doluyken yeni bir veri eklemeyi
     ve queue bos iken veri cikarmayi engellemesidir.
-    Queue'nun calismasi LIFO mantığına goredir.
+    Queue'nun calismasi LIFO mantığına goredir. Son giren ilk cikar...
+    Elimizdeki verileri duzgun bi sekilde gondermeyi saglar...
+    Mesela gonderilecek mesajlarin kuyrukta beklenip sirasiyla gonderilmesini saglar...
     */
 
     static public int counter =1;
@@ -26,9 +28,11 @@ public class C06_BlockQueue {
         Thread consumerThread = new Thread(consumer);
         consumerThread.start();
     }
-}
-class Producer implements Runnable{//Uretici
+ }
+ class Producer implements Runnable{ // Uretici
+
     private ArrayBlockingQueue<Integer> queue;
+
     // Constructor
     public Producer(ArrayBlockingQueue<Integer> queue) {
         this.queue = queue;
@@ -47,10 +51,10 @@ class Producer implements Runnable{//Uretici
             }
         }
     }
-}
+ }
 
 
-class Consumer implements Runnable{
+ class Consumer implements Runnable{
     private ArrayBlockingQueue<Integer> queue;
     // Constructor
     public Consumer(ArrayBlockingQueue<Integer> queue) {

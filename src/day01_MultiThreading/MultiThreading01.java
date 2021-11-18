@@ -7,13 +7,33 @@ public class MultiThreading01 {
     /*
     ============================================ THREAD, PROCESS==========================================
     Thread : Kelime manası iplik olmasına karsin IT alaninda is parcacigi olarak adlandirilir.
-
     Thread, Process olarak adlandirilan ve her bir calısan programın alt is parcacigi olarak dusunulebilir.
+    Kısaca Thread (iş parçacığı) kullanımı, birden fazla işlemin tek bir akışı paylaşarak
+    neredeyse eşzamanlı bir şekilde gerçekleşmesini sağlar.
 
     Single-Thread: Tek is parcacigi vardır. Ve tüm işler sira ile yapilir.
 
     Multi-Thread: Bir den fazla is parcacigi vardir ve bu isler ayni anda yapilabilir
-    (farklı işlemciler yardımıyla)
+    (farklı işlemciler yardımıyla)....
+
+    Single Thread ile MultiThread Modellerinin Karşılaştırılması
+
+    Single Thread:
+
+    Bu tür programlamada bir seferde tek bir iş parçacığı çalışır.
+    Tek iş parçacıklı model, sorgulamalı bir süreç olay döngüsü kullanır.
+    CPU zamanı boşa harcanır. Boşta kalma süresi daha fazladır.
+    Daha az verimli programlarla sonuçlanır.
+    Bir iş parçacığı duraklatıldığında, sistem bu iş parçacığı devam ettirilene kadar bekler.
+
+    Multi Thread:
+
+    Bu tür programlamada birden çok iş parçacığı aynı anda çalışır.
+    Çok iş parçacıklı model, sorgulamalı olay döngüsü kullanmaz.
+    CPU zamanı asla boşa harcanmaz. Boşta kalma süresi minimumdur.
+    Daha verimli programlarla sonuçlanır.
+    Herhangi bir nedenle bir iş parçacığı duraklatıldığında, diğer iş parçacıkları normal şekilde çalışır.
+
 
     Javada 2 yöntem ile Thread olusturmak mumkundur.
     ----------------------------------------------
