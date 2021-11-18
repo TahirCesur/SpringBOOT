@@ -22,6 +22,7 @@ public class MultiThreading05 {
         // Nedeni ise ; Once tehread1 calisacak sonra 2. si calismis olacak...
 
         Thread thread2 = new Thread(new Runnable() {
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 for(int i=1; i<=5; i++){

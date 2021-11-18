@@ -35,7 +35,9 @@ public class MultiThreading04 {
 
 class Brackets2 {
     public void generateBrackets() {
-        synchronized (this) { // Sadece burada kullandigimiz icin farklı sonuc verebilir..
+        synchronized (this) {
+            // Eğer methodun belirli bir kisminda senkronizasyon
+            // yapmak istersek "syncronized(this)" i kullaniriz.
             for (int i = 1; i <= 10; i++) {
                 if (i <= 5) {
                     System.out.print("[");

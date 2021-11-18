@@ -23,7 +23,8 @@ public class MultiThreading03 {
         // senkronizasyon problemi yasariz. Bu gibi durumlarda, join kullanmaliyiz.
 
         // Duzgun olarak istedigimiz sekilde olsun istiyorsak try catch ile join kullaniyoruz...
-        // Not : 49. satırda synchronized keywordu istedigimizi vermedi...
+        // Not : Elimizde birden fazla obje oldugu icin 'synchronized' yeterli gelmedi..
+        // 50. satirda synchronized keywordu istedigimizi vermedi...
 
         try {
             thread1.join();
@@ -35,6 +36,7 @@ public class MultiThreading03 {
         System.out.println("***************");
 
         Thread thread2 = new Thread(new Runnable() {
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 for(int i=1; i<=7; i++){
@@ -47,6 +49,8 @@ public class MultiThreading03 {
 }
 class Brackets {
     /*synchronized*/ public void generateBrackets() {
+        // Elimizde birden fazla obje oldugu icin 'synchronized' yeterli gelmedi..
+        // Bu yuzden 29. satir da join kullandik.
         for(int i=1; i<=10; i++) {
             if(i<=5) {
                 System.out.print("[");

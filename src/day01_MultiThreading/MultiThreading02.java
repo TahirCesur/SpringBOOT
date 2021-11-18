@@ -41,6 +41,7 @@ public class MultiThreading02 {
         thread1.start();
 
         Thread thread2 = new Thread(new Runnable() {
+            // new Runnable yapma sebebi otomatik olarak @Override getiriyor..
             @Override
             public void run() {
                 Counter.count();
@@ -53,6 +54,7 @@ public class MultiThreading02 {
 
 class Counter { // Counter = Sayıcı
     synchronized public static void count() {
+        // Elimizde bir obje oldugu icin (counter) 'synchronized' kullandik..
         for (int i = 1; i <= 1000; i++) {
             MultiThreading02.counter++;
         }
